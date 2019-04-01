@@ -1,0 +1,40 @@
+{
+  "name": "book-list",
+  "version": "1.0.0",
+  "description": "App on pure javascript",
+  "main": "index.js",
+  "repository": "git@github.com:mrSerhi/book-list.git",
+  "author": "Serhii Marushchenko <serhii.mar90@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "autoprefixer": "^9.4.7",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^1.0.1",
+    "css-loader": "^2.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-md5-hash": "^0.0.6",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "scripts": {
+    "webpack-dev-server": "webpack-dev-server",
+    "webpack": "webpack",
+    "online": "npm run webpack-dev-server -- --mode development --watch --open",
+    "dev": "npm run webpack -- --mode development",
+    "prod": "npm run webpack -- --mode production"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}
