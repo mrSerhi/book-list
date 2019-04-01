@@ -6,5 +6,7 @@ export const Elements = {
   bookForm: findElement("#book-form"),
   bookFormTitle: findElement("#book-title"),
   bookFormAuthor: findElement("#book-author"),
-  bookFormIsbn: findElement("#book-isbn")
+  bookFormIsbn: findElement("#book-isbn"),
+  // deleteBtn: findElement(".delete-book")
+  bookList: findElement("#book-list")
 };

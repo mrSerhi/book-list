@@ -37,3 +37,9 @@ function clearInputFields() {
   Elements.bookFormIsbn.value = "";
 }
 Elements.bookForm.addEventListener("submit", controlSubmiting);
+
+// deleting book from the table
+function controlDeletingBook(e) {
+  BookUI.deleteBook(e.target);
+}
+Elements.bookList.addEventListener("click", controlDeletingBook);

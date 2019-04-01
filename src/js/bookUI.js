@@ -20,11 +20,17 @@ class BookUI {
       <td>${author}</td>
       <td>${isbn}</td>
       <td>
-        <a href="#!" class="btn btn-danger btn-sm">X</a>
+        <a href="#!" class="btn btn-danger btn-sm delete-book">X</a>
       </td>
     `;
 
     list.appendChild(row);
+  }
+
+  static deleteBook(el) {
+    if (el.classList.contains("delete-book")) {
+      el.parentElement.parentElement.remove();
+    }
   }
 }
 
