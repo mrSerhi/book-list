@@ -30,7 +30,7 @@
   "scripts": {
     "webpack-dev-server": "webpack-dev-server",
     "webpack": "webpack",
-    "online": "npm run webpack-dev-server -- --mode development --watch --open",
+    "start": "npm run webpack-dev-server -- --mode development --watch --open",
     "dev": "npm run webpack -- --mode development",
     "prod": "npm run webpack -- --mode production"
   },
