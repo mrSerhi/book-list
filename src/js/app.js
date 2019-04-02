@@ -11,6 +11,7 @@ Events:
 */
 import BookUI from "./bookUI";
 import Book from "./book";
+import { validFields, clearInputFields } from "./validation";
 import { Elements } from "./elements";
 
 // Control
@@ -25,21 +26,44 @@ function controlSubmiting(e) {
     author: Elements.bookFormAuthor.value,
     isbn: Elements.bookFormIsbn.value
   };
-  const book = new Book({ ...data });
-  // add the new book to the UI
-  BookUI.addBookToList(book);
-  // clear input fields
-  clearInputFields();
-}
-function clearInputFields() {
-  Elements.bookFormTitle.value = "";
-  Elements.bookFormAuthor.value = "";
-  Elements.bookFormIsbn.value = "";
+  // validation
+  const errorMessages = validFields(data);
+  if (!errorMessages) {
+    const book = new Book({ ...data });
+    // add the new book to the UI
+    BookUI.addBookToList(book);
+
+    // show success message
+    BookUI.displayProcessMessage(
+      "Book has been added!",
+      "success",
+      "zoomIn",
+      "zoomOut"
+    );
+
+    // clear input fields
+    clearInputFields();
+  }
+  // display error messages
+  BookUI.displayProcessMessage(
+    errorMessages,
+    "danger",
+    "fadeIn",
+    "fadeOutRight"
+  );
 }
 Elements.bookForm.addEventListener("submit", controlSubmiting);
 
 // deleting book from the table
 function controlDeletingBook(e) {
   BookUI.deleteBook(e.target);
+
+  // Show deleted process message
+  BookUI.displayProcessMessage(
+    "Book has been deleted!",
+    "warning",
+    "bounceIn",
+    "bounceOut"
+  );
 }
 Elements.bookList.addEventListener("click", controlDeletingBook);
