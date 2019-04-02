@@ -1,6 +1,7 @@
 class Book {
   constructor(data) {
-    const { title, author, isbn } = data;
+    const { id, title, author, isbn } = data;
+    this.id = id;
     this.title = title;
     this.author = author;
     this.isbn = isbn;

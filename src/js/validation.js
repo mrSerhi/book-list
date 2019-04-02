@@ -2,6 +2,7 @@ import Joi from "joi-browser";
 import { Elements } from "./elements";
 
 const schema = {
+  id: Joi.string(),
   title: Joi.string().label("Title"),
   author: Joi.string().label("Author"),
   isbn: Joi.number()

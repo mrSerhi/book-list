@@ -1,20 +1,13 @@
-// To Do
-/*
-Classes:
-  1.Create Book class (represents a book)
-  2.Create UI Class: Handle UI tasks
-  3.Create Store Class: Handle localStorage 
-Events:
-  1.DISPLAY BOOKS
-  2.ADD A BOOK
-  3.DELETE A BOOK
-*/
 import BookUI from "./bookUI";
 import Book from "./book";
 import { validFields, clearInputFields } from "./validation";
 import { Elements } from "./elements";
+import uuid from "uuid";
+import Storage from "./storage";
+import { capitalize } from "./utilitis/utilit";
 
-// Control
+// CONTROLS
+// display books when page is loaded
 document.addEventListener("DOMContentLoaded", BookUI.displayBooks);
 
 // form submiting
@@ -22,9 +15,10 @@ function controlSubmiting(e) {
   e.preventDefault();
   // get the form fields value
   const data = {
+    id: uuid(),
     title: Elements.bookFormTitle.value,
     author: Elements.bookFormAuthor.value,
-    isbn: Elements.bookFormIsbn.value
+    isbn: +Elements.bookFormIsbn.value
   };
   // validation
   const errorMessages = validFields(data);
@@ -33,9 +27,12 @@ function controlSubmiting(e) {
     // add the new book to the UI
     BookUI.addBookToList(book);
 
+    // add the new book to the storage
+    Storage.setBook(book);
+
     // show success message
     BookUI.displayProcessMessage(
-      "Book has been added!",
+      `Book "${capitalize(book.title)}" has been added!`,
       "success",
       "zoomIn",
       "zoomOut"
@@ -56,14 +53,27 @@ Elements.bookForm.addEventListener("submit", controlSubmiting);
 
 // deleting book from the table
 function controlDeletingBook(e) {
-  BookUI.deleteBook(e.target);
+  e.preventDefault();
 
-  // Show deleted process message
-  BookUI.displayProcessMessage(
-    "Book has been deleted!",
-    "warning",
-    "bounceIn",
-    "bounceOut"
-  );
+  const delButton = e.target.closest("a"); // select delete btn
+  const bookTitle =
+    delButton.parentElement.previousElementSibling.previousElementSibling
+      .previousElementSibling.textContent;
+
+  if (delButton) {
+    // remove book from UI
+    BookUI.removeBook(delButton);
+
+    // remove book from localStorage
+    Storage.removeBook(delButton);
+
+    // Show deleted process message
+    BookUI.displayProcessMessage(
+      `Book "${bookTitle}" has been deleted!`,
+      "warning",
+      "bounceIn",
+      "bounceOut"
+    );
+  }
 }
 Elements.bookList.addEventListener("click", controlDeletingBook);

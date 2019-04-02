@@ -9,3 +9,6 @@ export const capitalize = value => {
     .map(string => parse(string))
     .join(" ");
 };
+
+export const jsonParse = data => JSON.parse(data);
+export const jsonStringify = data => JSON.stringify(data);
