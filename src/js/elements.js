@@ -7,7 +7,7 @@ export const Elements = {
   bookFormTitle: findElement("#book-title"),
   bookFormAuthor: findElement("#book-author"),
   bookFormIsbn: findElement("#book-isbn"),
-  // deleteBtn: findElement(".delete-book")
+  bookAppError: findElement(".error-message"),
   bookList: findElement("#book-list"),
   bookSubmit: findElement("#book-sumbit")
 };

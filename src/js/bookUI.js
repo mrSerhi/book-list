@@ -33,6 +33,13 @@ class BookUI {
   static displayProcessMessage(errors, className, animStartName, AnimEndName) {
     const div = document.createElement("div");
     div.className = `alert alert-${className}`;
+    const style = {
+      fontSize: "1rem",
+      lineHeight: 1.3,
+      fontStyle: "italic"
+    };
+    Object.assign(div.style, style);
+
     if (errors) {
       div.classList.add("animated", animStartName);
       if (Array.isArray(errors)) {
@@ -47,7 +54,7 @@ class BookUI {
         setTimeout(() => {
           div.remove();
         }, 1000);
-      }, 2500);
+      }, 3000);
     }
   }
 
