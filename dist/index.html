@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>BookList App</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href=""
+    />
+  </head>
+
+  <body>
+    <!-- book selector -->
+    <section id="book-app">
+      <div class="container">
+        <h1 class="display-4 text-capitalize text-center mt-5 book-app__header">
+          <i class="fas fa-book-open text-danger"></i>
+          my <span class="text-danger">book</span> list
+        </h1>
+
+        <!-- book form -->
+        <div class="row mt-3">
+          <div class="col-md-4 mx-auto">
+            <div class="card">
+              <div class="card-header bg-dark text-light">
+                Add you liked book
+              </div>
+              <div class="card-body bg-muted">
+                <form id="book-form">
+                  <div class="form-group">
+                    <label for="book-title">
+                      <i class="fas fa-sticky-note"></i> Book Title
+                    </label>
+                    <input
+                      id="book-title"
+                      type="text"
+                      class="form-control"
+                      placeholder="Type title of book"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="book-author">
+                      <i class="fas fa-user-tie"></i> Author </label
+                    ><input
+                      id="book-author"
+                      type="text"
+                      class="form-control"
+                      placeholder="Type book authors"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="book-isbn">
+                      <i class="fas fa-hashtag"></i> ISBN
+                    </label>
+                    <input
+                      id="book-isbn"
+                      type="text"
+                      class="form-control"
+                      placeholder="Type a number of ISBN"
+                    />
+                  </div>
+                  <input
+                    id="book-sumbit"
+                    type="submit"
+                    value="Add book"
+                    class="btn btn-outline-danger btn-block"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- END book form -->
+
+          <!-- section table of books -->
+          <div class="col-md-6 mx-auto">
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>ISBN#</th>
+                  <th><!-- delete btn --></th>
+                </tr>
+              </thead>
+
+              <tbody id="book-list"></tbody>
+            </table>
+          </div>
+          <!-- END section table of books -->
+        </div>
+      </div>
+    </section>
+    <!-- END book selector -->
+
+    <script src="./js/bundle.js?bd86aaa7f731e5575375"></script>
+  </body>
+</html>
