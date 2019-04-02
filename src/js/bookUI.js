@@ -1,4 +1,5 @@
 import { Elements } from "./elements";
+import { capitalize } from "./utilitis/utilit";
 
 class BookUI {
   static displayBooks() {
@@ -18,8 +19,8 @@ class BookUI {
     const row = document.createElement("tr");
     const { title, author, isbn } = book;
     row.innerHTML = `
-      <td>${title}</td>
-      <td>${author}</td>
+      <td>${capitalize(title)}</td>
+      <td>${capitalize(author)}</td>
       <td>${isbn}</td>
       <td>
         <a href="#!" class="btn btn-danger btn-sm delete-book">
