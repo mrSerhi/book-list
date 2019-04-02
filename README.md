@@ -1,17 +1,17 @@
 # Book-list
 
-Book-list is a project with form which uses for add liked book. Pure javascript.
+Book-list is a project with form which uses for add has been liked book. Pure javascript.
 
 # Features
 
-- add books to the table
+- add books to the table using add book form
 - form used validation and display error/successed message
 - remove book
 - for saving actual added books, used a localStorage
 
 ### Tech
 
-Vidly uses a number of open source projects to work properly:
+Book-list uses a number of open source projects to work properly:
 
 - [Joi] - Lib for validation javascript objects
 - [uuid] - Generate Unique id
