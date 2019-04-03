@@ -77,3 +77,9 @@ function controlDeletingBook(e) {
   }
 }
 Elements.bookList.addEventListener("click", controlDeletingBook);
+
+// searching books
+function controlSearching(e) {
+  BookUI.filteringBooks(e.target.value);
+}
+Elements.bookSearch.addEventListener("keyup", controlSearching);

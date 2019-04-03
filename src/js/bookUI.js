@@ -5,19 +5,18 @@ import Storage from "./storage";
 // class for working with clients UI
 class BookUI {
   static displayBooks() {
-    // geting books from localStorage
-    const storedBooks = Storage.getBooks();
-
+    // getting books from localStorage
+    let storedBooks = Storage.getBooks();
     storedBooks.forEach(book => BookUI.addBookToList(book));
   }
-
+  // render table items in UI
   static addBookToList(book) {
     const list = document.querySelector("#book-list");
     const row = document.createElement("tr");
     const { id, title, author, isbn } = book;
     row.setAttribute("id", id);
     row.innerHTML = `
-      <td>${capitalize(title)}</td>
+      <td class="book-title">${capitalize(title)}</td>
       <td>${capitalize(author)}</td>
       <td>${isbn}</td>
       <td>
@@ -28,6 +27,17 @@ class BookUI {
     `;
 
     list.appendChild(row);
+  }
+
+  static filteringBooks(query) {
+    const titlesNode = document.querySelectorAll(".book-title");
+    titlesNode.forEach(el => {
+      if (el.textContent.toUpperCase().indexOf(query.toUpperCase()) > -1) {
+        el.parentElement.style.display = "";
+      } else {
+        el.parentElement.style.display = "none";
+      }
+    });
   }
 
   static displayProcessMessage(errors, className, animStartName, AnimEndName) {
